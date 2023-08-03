@@ -12,10 +12,11 @@ import assignDevices from '../routes/assign-devices.routes';
 export default class Server{
     
     app: express.Application;
+    port: string ;
 
-    constructor(private port? : string | number){
+    constructor(){
         this.app = express();
-        this.port = process.env.PORT;
+        this.port = String(process.env.PORT);
 
         this.publicFolder();
 
