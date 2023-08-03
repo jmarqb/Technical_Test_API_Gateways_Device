@@ -65,6 +65,7 @@ $ cp .env.example .env
 To run TEST TECNICO, use the following command:
 
 ```bash
+$ npm run build
 $ npm run start
 ```
 
