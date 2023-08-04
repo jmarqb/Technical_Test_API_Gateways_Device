@@ -18,12 +18,12 @@ export const assignDevice = async (req: Request, res: Response): Promise<Respons
         return res.status(400).json({ error: 'Gateway not found' });
     }
 
-    //verificar si el device esta asociado a un dispositivo
+    //validate if the device is associated with a device
     if (await isDeviceAssociated(device_uid)) {
         return res.status(400).json({ error: 'The device is already associated with a gateway ' });
     }
 
-    //verificar que el gateway tenga menos de 10 dispositivos asignados
+    //verify that the gateway has fewer than 10 devices assigned
     if (!await isUnderDeviceLimit(gateway_uuid)) {
         return res.status(400).json({ error: 'The gateway has reached the limits to assignated devices ' });
     }
@@ -33,12 +33,12 @@ export const assignDevice = async (req: Request, res: Response): Promise<Respons
 
     try {
 
-        //en mi tabla gateways relacionar el uuid al id
+        //Link the UUID to the ID in gateways table
         const cnn = await connect();
         const [row] = await cnn.query(query, [gateway_uuid]) as mysql2.RowDataPacket[];
         const gateway_id = row[0].id; //tengo el id de gateways
 
-        //hacer la asignacion en base de datos
+        //Make the assignment in the database
         const valuesInsert = [gateway_id, device_uid];
         const [rowI] = await cnn.query(queryInsert, valuesInsert) as mysql2.ResultSetHeader[];
 

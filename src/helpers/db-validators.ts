@@ -149,8 +149,7 @@ export const updateDeviceAssociation = async(device_uid:number, gatewayID:number
     }
 }
 
-//verificar si el device tiene un gateway asociado y actualizar el campo total_devices_associated
-//en la tabla gateways -se utiliza en el deleteDevice
+//check if the device has an associated gateway and update the total_devices_associated field
 export const verifyDeviceAssociationBeforeDelete = async(uid:number):Promise<void>=>{
     const query = `SELECT gateway_id FROM gateway_devices WHERE device_id = ?`
     const value = [uid];

@@ -6,7 +6,7 @@ import { validateFields } from '../middlewares/validate-fields';
 const url:string = '/api/gateways/assignDevice';
 const router = Router();
 
-//asignar un device a un gateway
+// Assign_Devices_to_Gateway
 /**
  * @swagger
  * tags:

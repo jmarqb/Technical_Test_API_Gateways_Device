@@ -9,7 +9,7 @@ import { createGateways, deleteGateway, getGateways, getGatewaysById, updateGate
 const router: Router = Router();
 const url: string = '/api/gateways';
 
-//Obtener los gateways
+//Read the gateways
 /**
  * @swagger
  * "tags": 
@@ -63,7 +63,7 @@ const url: string = '/api/gateways';
  */
 router.get(url, getGateways);
 
-//obtener gateway por id-serial number
+//Read Gateway by id-serial number
 /**
  * @swagger
  * "/api/gateways/{id}": {
@@ -173,7 +173,7 @@ router.post(url, [
    validateFields
 ], createGateways);
 
-//actualizar gateway
+//Update Gateway
 /**
  * @swagger
  * /api/gateways/{id}:
