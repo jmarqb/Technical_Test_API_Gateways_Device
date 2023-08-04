@@ -112,7 +112,7 @@ export const isUnderDeviceLimit = async (uuid: string): Promise<boolean> => {
         const [row] = await cnn.query(query, values) as mysql2.RowDataPacket[];
         const total_devices = row[0].total_devices_associated;
 
-        return total_devices < 10; //Retorna true si el total de dispositivos es menor a 10, falso en caso contrario
+        return total_devices < 10; //Returns true if the total number of devices is less than 10, false otherwise
     } catch (error) {
         console.log(error);
         throw new Error('Something goes wrong');
