@@ -3,11 +3,11 @@
 export default class DeviceSchema {
 
     private provider: string;
-    private estado: boolean ;
+    private _status: boolean ;
 
     constructor(provider:string) {
         this.provider = provider;
-        this.estado = false;
+        this._status = false;
     }
     
     public get vendor() : string {
@@ -15,7 +15,7 @@ export default class DeviceSchema {
     }
     
     public get status() : string {
-        if(this.estado === false){
+        if(this._status === false){
             return 'offline'
         }else{
             return 'online'
