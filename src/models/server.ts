@@ -46,8 +46,8 @@ export default class Server{
     private listen(){
       console.log(this.port);
       this.app.listen(this.port, ()=>{
-            console.log(`Servidor ejecutandose en el puerto : ${this.port}`);
-            console.log(`Documentacion disponible en http://localhost:${this.port}/api-docs/`);
+            console.log(`Server running on port : ${this.port}`);
+            console.log(`Documentation available at  http://localhost:${this.port}/api-docs/`);
           });
       }
 }
