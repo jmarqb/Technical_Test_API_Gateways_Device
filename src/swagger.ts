@@ -16,23 +16,23 @@ const options = {
             properties:{
               id: {
                 type: 'string',
-                description: 'ID del gateway.',
+                description: 'ID Gateway',
                 example: "7d46c4cf-c511-4eba-9300-2bc4231da085"
               },
               name:{
                 type:'string',
-                description: 'Nombre del gateway.',
+                description: 'Gateway Name',
                 example: "enlace 1"
               },
               ipv4address:{
                 type:'string',
-                description: 'Dirección IP del gateway.',
+                description: 'Gateway IP address',
                 example: "192.168.10.1"
               },
               associated_devices: {
                 type: 'array',
                 items: { $ref: '#/components/schemas/Device' },
-                description: 'Dispositivos asociados al gateway.'
+                description: 'Devices associated to Gateway.'
               }
             }
           },
