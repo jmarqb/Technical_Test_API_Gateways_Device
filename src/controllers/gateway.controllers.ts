@@ -92,7 +92,7 @@ export const createGateways = async (req: Request, res: Response): Promise<Respo
 
     const query = `INSERT INTO gateways(serialnumber,name,ipv4address) VALUES (? , ? , ?)`;
     const values = [gateway.serialId,
-    gateway.nombre,
+    gateway._name,
     gateway.ipv4];
 
     try {
@@ -101,7 +101,7 @@ export const createGateways = async (req: Request, res: Response): Promise<Respo
         return res.json({
             id: rows.insertId,
             serialnumber: gateway.serialId,
-            name: gateway.nombre,
+            name: gateway._name,
             ipv4address: gateway.ipv4,
         });
     } catch (error) {

@@ -16,7 +16,7 @@ export default class GatewaysSchema{
         return this.serialNumber;
     }
     
-    public get nombre() : string {
+    public get _name() : string {
         return this.name;
     }
     
