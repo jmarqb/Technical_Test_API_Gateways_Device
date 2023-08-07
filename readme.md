@@ -5,7 +5,8 @@
 4. [Installation](#installation)
 5. [Configuration](#configuration)
 6. [Running the Application](#running-the-application)
-7. [API Documentation](#api-documentation)
+7. [Test](#test)
+8. [API Documentation](#api-documentation)
 
 ### General Info
 ***
@@ -30,6 +31,8 @@ A list of technologies used within the project:
 * [uuid](https://www.npmjs.com/package/uuid): Version 9.0.0
 * [dotenv](https://www.npmjs.com/package/dotenv): Version 16.3.1
 * [copyfiles](https://www.npmjs.com/package/copyfiles): Version 2.4.1
+* [Jest](https://jestjs.io/): Version 29.6.2
+* [Supertest](https://www.npmjs.com/package/supertest): Version 6.3.3
 
 ### Prerequisites
 Before you begin, ensure you have met the following requirements:
@@ -72,6 +75,25 @@ $ npm run start
 This will start the server and the application will be available at http://localhost:<your_port>
 
 Remember to replace <your_port> with the port number you have configured in your .env file.
+
+## Test
+***
+To ensure everything is working as expected, this project includes several integration tests using Jest. To run these tests, follow these steps:
+
+Make sure you have all the project dependencies installed. If you haven't yet, you can do this with the `npm install` command.
+Run the TEST using the next command:
+
+```bash
+$ npm test
+```
+
+If you want to get a code coverage report to see what parts of your code are not being tested, you can use the command:
+
+```bash
+$ npm test -- --coverage
+```
+
+This command will generate a code coverage report in the console and will also create a coverage folder at the root of your project with a detailed report.
 
 ## API Documentation
 ***
