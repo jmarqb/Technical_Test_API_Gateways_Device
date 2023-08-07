@@ -2,7 +2,8 @@ import Server from "./models/server";
 
 
 function main(){
-    new Server();
+   const server = new Server();
+   server.listen();
 }
 
 main();
