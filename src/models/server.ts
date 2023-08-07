@@ -23,8 +23,7 @@ export default class Server{
         this.middlewares();
 
         this.routes();
-
-        this.listen();
+        
     }
 
     private middlewares(){
@@ -43,7 +42,7 @@ export default class Server{
       this.app.use(assignDevices);
     }
     
-    private listen(){
+    public listen(){
       console.log(this.port);
       this.app.listen(this.port, ()=>{
             console.log(`Server running on port : ${this.port}`);
