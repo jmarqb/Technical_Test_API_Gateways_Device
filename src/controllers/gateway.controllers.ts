@@ -137,7 +137,13 @@ export const updateGateways = async (req: Request, res: Response): Promise<Respo
                 msg: 'Gateway not found'
             });
         }
+        
         const [rows] = await cnn.query(devolQuery, [id]) as mysql2.RowDataPacket[];
+         // for every gateway find devices associated
+         for (let i = 0; i < rows.length; i++) {
+            const [devices] = await cnn.query('SELECT devices.uid, devices.vendor, devices.status, devices.date_created, devices.date_on_update FROM devices INNER JOIN gateway_devices ON devices.uid = gateway_devices.device_id WHERE gateway_devices.gateway_id = ?', [rows[i].id]) as mysql2.RowDataPacket[];
+            rows[i].associated_devices = devices;
+        }
         return res.json(rows);
 
     } catch (error) {
