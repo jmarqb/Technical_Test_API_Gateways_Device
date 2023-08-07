@@ -156,6 +156,7 @@ validateFields
  */
 router.post(url,[
     check('vendor','Vendor is required').not().isEmpty(),
+    check('vendor', 'vendor should be a string').isString(),
     validateFields
 ],createDevice);
 
