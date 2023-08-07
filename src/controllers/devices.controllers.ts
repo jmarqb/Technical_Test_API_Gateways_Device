@@ -88,7 +88,7 @@ export const createDevice = async (req: Request, res: Response): Promise<Respons
         const dateFormated: string = date_created[0].date_created.toISOString().slice(0, 19);
 
         return res.json({
-            id: rows.insertId,
+            uid: rows.insertId,
             vendor: device.vendor,
             status: device.status,
             date_created: dateFormated, //2023-07-28T22:32:18
@@ -134,18 +134,18 @@ export const updateDevice = async (req: Request, res: Response): Promise<Respons
             });
         }else{
             const [dateInfo] = await cnn.query('SELECT date_created, date_on_update FROM devices WHERE uid = ?', [id]) as mysql2.RowDataPacket[];
-            datecreatedFormated = dateInfo[0].date_created.toISOString().slice(0, 19);
-            dateupdatedFormated = dateInfo[0].date_on_update.toISOString().slice(0, 19);
+            datecreatedFormated = dateInfo[0].date_created.toISOString();
+            dateupdatedFormated = dateInfo[0].date_on_update.toISOString();
         }
 
         const [rows] = await cnn.query(devolQuery, [id]) as mysql2.RowDataPacket[];
         
         return res.json({
-            id: rows[0].uid,
+            uid: rows[0].uid,
             vendor: rows[0].vendor,
             status: rows[0].status,
-            date_created: datecreatedFormated, //2023-07-28T22:32:18
-            date_updated: dateupdatedFormated //2023-07-28T22:32:18
+            date_created: datecreatedFormated, 
+            date_updated: dateupdatedFormated 
         });
 
     } catch (error) {
