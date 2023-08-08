@@ -64,6 +64,8 @@ describe('Post /api/gateways/assignDevice',()=>{
         expect(response.body.device_uid).toEqual(createdDeviceId);
         expect(response.body.gateway_uuid).toEqual(createdGatewayId);
         expect(response.statusCode).toBe(200);
+         arrayOfIdsOfDevicesCreated.push(createdDeviceId);
+        arrayOfIdsOfGatewaysCreated.push(createdGatewayId);
     
     });
 
@@ -81,6 +83,7 @@ describe('Post /api/gateways/assignDevice',()=>{
         //creating a device for use the device_uid
         const respDevice = await createNewDevice();
         createdDeviceId = respDevice.body.uid;
+        arrayOfIdsOfDevicesCreated.push(createdDeviceId);
 
         const assignation = { device_uid : createdDeviceId, gateway_uuid: 55 }
         const response = await request(server.app).post(url).send(assignation);
@@ -103,7 +106,7 @@ describe('Post /api/gateways/assignDevice',()=>{
         //creating a device for use the device_uid
         const respDevice = await createNewDevice();
         createdDeviceId = respDevice.body.uid;
-
+        arrayOfIdsOfDevicesCreated.push(createdDeviceId);
         const assignation = { device_uid:createdDeviceId  , gateway_uuid: '35c73d34-0a97-4d32-a0f2-a6eb4d618f96' }
 
         const response = await request(server.app).post(url).send(assignation);
@@ -116,10 +119,12 @@ describe('Post /api/gateways/assignDevice',()=>{
         //creating a gateway for use the gateway_uuid
         const respGateway = await createNewGateway();
         createdGatewayId = respGateway.body.serialnumber;
+        arrayOfIdsOfGatewaysCreated.push(createdGatewayId);
 
         //creating a device for use the device_uid
         const respDevice = await createNewDevice();
         createdDeviceId = respDevice.body.uid;
+        arrayOfIdsOfDevicesCreated.push(createdDeviceId);
 
         const fields = [
             {},
@@ -152,6 +157,8 @@ describe('Post /api/gateways/assignDevice',()=>{
         //creating a device for use the device_uid
         const respDevice = await createNewDevice();
         createdDeviceId = respDevice.body.uid;
+        arrayOfIdsOfDevicesCreated.push(createdDeviceId);
+
         //the 11 assignation - to fail
         const assignation = { device_uid:createdDeviceId  , gateway_uuid: createdGatewayId }
         const response = await request(server.app).post(url).send(assignation);
@@ -171,6 +178,7 @@ describe('Post /api/gateways/assignDevice',()=>{
         //creating a device for use the device_uid
         const respDevice = await createNewDevice();
         let createdDeviceId = respDevice.body.uid;
+        arrayOfIdsOfDevicesCreated.push(createdDeviceId);
         const assignation1 = { device_uid:createdDeviceId  , gateway_uuid: createdGatewayId1 }
         const response = await request(server.app).post(url).send(assignation1);
         expect(response.statusCode).toBe(200);
