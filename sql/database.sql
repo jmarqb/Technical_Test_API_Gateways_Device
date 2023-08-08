@@ -15,7 +15,7 @@ CREATE TABLE `devices` (
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(25) NOT NULL,
   `date_on_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `associated` tinyint NOT NULL DEFAULT '0',
+  `associated` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
