@@ -11,21 +11,21 @@ export const assignDevice = async (req: Request, res: Response): Promise<Respons
 
     //validate device_uid exist in db 
     if (!await isUid_deviceExists(device_uid)) {
-        return res.status(400).json({ error: 'Device not found' });
+        return res.status(404).json({ error: 'Device not found' });
     }
     //validate gateway_uuid exist in db
     if (!await isUUID_gatewaysExists(gateway_uuid)) {
-        return res.status(400).json({ error: 'Gateway not found' });
+        return res.status(404).json({ error: 'Gateway not found' });
     }
 
     //validate if the device is associated with a device
     if (await isDeviceAssociated(device_uid)) {
-        return res.status(400).json({ error: 'The device is already associated with a gateway ' });
+        return res.status(400).json({ error: 'The device is already associated with a gateway' });
     }
 
     //verify that the gateway has fewer than 10 devices assigned
     if (!await isUnderDeviceLimit(gateway_uuid)) {
-        return res.status(400).json({ error: 'The gateway has reached the limits to assignated devices ' });
+        return res.status(400).json({ error: 'The gateway has reached the limits to assignated devices' });
     }
 
     const query = `SELECT * FROM gateways WHERE serialnumber = ?`;
@@ -48,7 +48,7 @@ export const assignDevice = async (req: Request, res: Response): Promise<Respons
         return res.json({
             device_uid,
             gateway_uuid,
-            asignacion: 'Success'
+            assignation: 'Success'
         });
     } catch (error) {
         console.log(error);
