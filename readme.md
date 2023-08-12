@@ -4,9 +4,10 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [Configuration](#configuration)
-6. [Running the Application](#running-the-application)
-7. [Test](#test)
-8. [API Documentation](#api-documentation)
+6. [Using Docker](#using-docker)
+7. [Running the Application](#running-the-application)
+8. [Test](#test)
+9. [API Documentation](#api-documentation)
 
 ### General Info
 ***
@@ -24,7 +25,6 @@ A list of technologies used within the project:
 * [TypeScript](https://www.typescriptlang.org/): Version 5.1.6
 * [Express](https://expressjs.com/): Version 4.18.2
 * [Express-Validator](https://express-validator.github.io/): Version 7.0.1
-* [MySQL Server](https://dev.mysql.com/downloads/mysql/): Version 8.1.0
 * [mysql2](https://www.npmjs.com/package/mysql2): Version 3.5.2
 * [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc): Version 6.2.8
 * [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express): Version 5.0.0
@@ -38,6 +38,7 @@ A list of technologies used within the project:
 Before you begin, ensure you have met the following requirements:
 * You have installed node.js and npm.
 * You have a MySQL Server running.
+* [Optional] Docker and Docker Compose if you prefer to run the application with Docker.
 
 ## Installation
 ***
@@ -46,14 +47,14 @@ To install TEST TECNICO, follow these steps:
 Linux and macOS:
 ```bash
 $ git clone https://github.com/jmarqb/Technical_Test_API_Gateways_Device.git
-$ cd ../path/to/the/file
+$ cd Technical_Test_API_Gateways_Device
 $ npm install
 ```
 
-```
 Windows:
+```bash
 $ git clone https://github.com/jmarqb/Technical_Test_API_Gateways_Device.git
-$ cd ../path/to/the/file
+$ cd Technical_Test_API_Gateways_Device
 $ npm install
 ```
 
@@ -63,6 +64,32 @@ Copy .env.example to .env and update it with your MySQL connection parameters.
 ```
 $ cp .env.example .env
 ```
+
+## Using Docker
+***
+If you have Docker and Docker Compose installed, running the application becomes even easier. First, you need to clone the repository and navigate to the project directory:
+
+```bash
+$ git clone https://github.com/jmarqb/Technical_Test_API_Gateways_Device.git
+$ cd Technical_Test_API_Gateways_Device
+```
+
+Make sure you've properly configured your `.env` file as mentioned in the [Configuration](#configuration) section.
+
+To start the application with Docker:
+
+```bash
+$ docker-compose up --build
+```
+
+This will build the necessary images, start the containers, and the application will be available at http://localhost:<your_port>. Remember to replace <your_port> with the port number you have configured in your .env file.
+
+To stop the application:
+
+```bash
+$ docker-compose down
+```
+
 ## Running the Application
 ***
 To run TEST TECNICO, use the following command:
