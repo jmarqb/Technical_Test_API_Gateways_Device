@@ -61,8 +61,11 @@ $ npm install
 ## Configuration
 ***
 Copy .env.example to .env and update it with your MySQL connection parameters.
+
+Linux/Windows:
 ```
 $ cp .env.example .env
+> copy .env.example .env
 ```
 
 ## Using Docker
@@ -71,10 +74,17 @@ If you have Docker and Docker Compose installed, running the application becomes
 
 ```bash
 $ git clone https://github.com/jmarqb/Technical_Test_API_Gateways_Device.git
-$ cd Technical_Test_API_Gateways_Device
+$ cd Technical_Test_API_Gateways_Device/.docker
 ```
 
-Make sure you've properly configured your `.env` file as mentioned in the [Configuration](#configuration) section.
+To run the application with Docker, we provide the sample .env configuration with the parameters we used for it.
+
+`PORT=3000`
+`DB_HOST=mysql`
+`DB_PORT=3306`
+`DB_USER=demo_user`
+`DB_PASSWORD=demo_password`
+`DB_DATABASE=node_gateways`
 
 To start the application with Docker:
 
@@ -82,7 +92,7 @@ To start the application with Docker:
 $ docker-compose up --build
 ```
 
-This will build the necessary images, start the containers, and the application will be available at http://localhost:<your_port>. Remember to replace <your_port> with the port number you have configured in your .env file.
+This will build the necessary images, start the containers, and the application will be available at http://localhost:3000.
 
 To stop the application:
 
