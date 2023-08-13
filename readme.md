@@ -11,7 +11,7 @@
 
 ### General Info
 ***
-TEST TECNICO
+TECHNICAL TEST
 API GATEWAY - DEVICE
 
 This project is an API developed to store information about Gateways and the devices associated with each of them.
@@ -42,7 +42,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 ***
-To install TEST TECNICO, follow these steps:
+To install TECHNICAL TEST, follow these steps:
 
 Linux and macOS:
 ```bash
@@ -102,7 +102,7 @@ $ docker-compose down
 
 ## Running the Application
 ***
-To run TEST TECNICO, use the following command:
+To run TECHNICAL TEST, use the following command:
 
 ```bash
 $ npm run build
@@ -115,7 +115,7 @@ Remember to replace <your_port> with the port number you have configured in your
 
 ## Test
 ***
-To ensure everything is working as expected, this project includes several integration tests using Jest. To run these tests, follow these steps:
+To ensure everything is working as expected, this project includes several integration tests using Jest. Before running the tests, make sure you are connected to a database as these are integration tests and they require database access.To run these tests, follow these steps:
 
 Make sure you have all the project dependencies installed. If you haven't yet, you can do this with the `npm install` command.
 Run the TEST using the next command:
