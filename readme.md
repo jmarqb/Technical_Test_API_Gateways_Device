@@ -4,8 +4,8 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [Configuration](#configuration)
-6. [Using Docker](#using-docker)
-7. [Running the Application](#running-the-application)
+6. [Running the Application](#running-the-application)
+7. [Using Docker](#using-docker)
 8. [Test](#test)
 9. [API Documentation](#api-documentation)
 
@@ -68,6 +68,19 @@ $ cp .env.example .env
 > copy .env.example .env
 ```
 
+## Running the Application
+***
+To run TECHNICAL TEST, use the following command:
+
+```bash
+$ npm run build
+$ npm run start
+```
+
+This will start the server and the application will be available at http://localhost:<your_port>
+
+Remember to replace <your_port> with the port number you have configured in your .env file.
+
 ## Using Docker
 ***
 If you have Docker and Docker Compose installed, running the application becomes even easier. First, you need to clone the repository and navigate to the project directory:
@@ -99,19 +112,6 @@ To stop the application:
 ```bash
 $ docker-compose down
 ```
-
-## Running the Application
-***
-To run TECHNICAL TEST, use the following command:
-
-```bash
-$ npm run build
-$ npm run start
-```
-
-This will start the server and the application will be available at http://localhost:<your_port>
-
-Remember to replace <your_port> with the port number you have configured in your .env file.
 
 ## Test
 ***
